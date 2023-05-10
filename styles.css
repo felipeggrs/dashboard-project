@@ -10,14 +10,16 @@
 
 :root {
     --icon-gap: 5px;
-    --color-one: rgb(211, 211, 211);
-    --color-two: rgb(150, 150, 180);
+    --color-one: rgb(241, 246, 249); /* Light color */
+    --color-two: rgb(180, 190, 200); /* Darker color */
+    --color-three: rgb(66, 3, 44); /* Sidebar and details color */
 }
 
 h1 {
-    text-align: center;
+    display: flex;
+    align-self: center;
+    color: var(--color-three);
 }
-
 .main-container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
@@ -25,6 +27,8 @@ h1 {
     min-height: 100vh;
     background-color: var(--color-one);
 }
+
+/* ↓ Header design ↓*/
 
 .header {
     display: grid;
@@ -44,38 +48,72 @@ h1 {
     display: flex;
     gap: var(--icon-gap);
     padding-right: 3vw;
+    margin-left: 50px;
 }
 
 .user-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 3vw;
+    gap: 1vw;
     margin-right: 3vw;
 }
 
 .searchbar {
-    flex: 1;
+    width: 50vh;
 }
+/* ↑ Header design ↑ */
+
+/* ↓ Sidebar design ↓ */
 
 .sidebar {
     display: flex;
     flex-flow: column nowrap;
-    gap: 30px;
+    justify-content: space-between;
 
 
     grid-column: 1 / 2;
     grid-row: 1 / -1;
 
-    background-color: var(--color-two);
-    padding: 15px;
+    background-color: var(--color-three);
+    padding: 25px;
+
+    color: white;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar ul li {
+    display: flex;
+    gap: var(--icon-gap);
+    align-items: center;
 }
 
 .logo {
     display: flex;
+    align-items: center;
     gap: var(--icon-gap);
     font-size: 25px;
+
+    font-weight: bold;
 }
+
+.logo span {
+    display: flex;
+    align-items: center;
+}
+
+/* ↑ Sidebar design ↑ */
 
 .content {
     grid-column: 2 / 5;
@@ -83,10 +121,13 @@ h1 {
     background-color: var(--color-one);
     gap: 10px;
     padding: 20px;
+    margin-left: 25px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+/* ↓ Main content design ↓ */
 
 .content > h1 {
     grid-area: 1 / 1 / 2 / 3;
@@ -96,13 +137,13 @@ h1 {
     text-align: justify;
     padding: 20px;
     background-color: var(--color-two);
-    border-radius: 25px;
+    border-radius: 5px;
     box-shadow: 2px 2px rgb(180, 180, 180);
 
     display: grid;
     grid-template-rows: 1fr 3fr 1fr;
     grid-template-columns: 1fr 1fr;
-    border-left: 5px solid black;
+    border-left: 10px solid rgb(66, 3, 44);
 }
 
 .content-card > h3,
@@ -123,14 +164,9 @@ h1 {
     justify-self: end;
 }
 
-ul {
-    line-height: 30px;
-}
+/* ↑ Main content design ↑ */
 
-.sidebar > ul > li {
-    display: flex;
-    gap: var(--icon-gap);
-}
+/* ↓ Side content design (right column) ↓ */
 
 .side-content {
     grid-area: 2 / 5 / 5 / 7;
@@ -146,10 +182,8 @@ ul {
     text-align: justify;
     padding: 20px;
     background-color: var(--color-two);
-    border-radius: 25px;
+    border-radius: 5px;
     box-shadow: 2px 2px rgb(180, 180, 180);
-    border-left: 8px solid black;
-    border-right: 8px solid black;
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -173,3 +207,5 @@ ul {
 .trending-card {
     grid-area: 4 / 1 / 5 / 2;
 }
+
+/* ↑ Side content design (right column) ↑ */
